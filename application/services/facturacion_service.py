@@ -6,6 +6,5 @@ class FacturacionService:
         self.llamada_repository = llamada_repository
 
     def calcular_gasto_usuario(self, telefono, fecha_inicio, fecha_fin):
-        llamadas = self.llamada_repository.obtener_llamadas_por_usuario(telefono, fecha_inicio, fecha_fin)
-        costo_total = sum(CalculadoraCostos.calcular_costo_llamada(llamada) for llamada in llamadas)
-        return round(costo_total, 2)
+        # Solo obtiene el costo total directamente desde el repositorio
+        return self.llamada_repository.obtener_llamadas_por_usuario(telefono, fecha_inicio, fecha_fin)

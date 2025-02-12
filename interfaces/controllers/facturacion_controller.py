@@ -19,11 +19,14 @@ def calcular_gasto():
 
         costo_total = facturacion_service.calcular_gasto_usuario(telefono, fecha_inicio, fecha_fin)
 
-        return jsonify({
+        # Aquí generarías la boleta con el costo total calculado
+        boleta = {
             'telefono': telefono,
             'fecha_inicio': fecha_inicio,
             'fecha_fin': fecha_fin,
             'costo_total': costo_total
-        })
+        }
+
+        return jsonify(boleta)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
